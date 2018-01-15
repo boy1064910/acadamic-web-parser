@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+
+<body>
+	<p>\href{11}{22}</p>
+    <p>
+        <h4>游戏</h4> 1.针对以下函数和函数表格，填写函数在某点的limit</p>
+    <p>\[f(x) = \frac{x^2-1}{x-1}\]</p>
+    <p>
+        <table border="1">
+            <tr>
+                <th>x</th>
+                <th>0.9</th>
+                <th>0.99</th>
+                <th>0.999</th>
+                <th>0.9999</th>
+            </tr>
+            <tr>
+                <td>f(x)</td>
+                <td>1.9</td>
+                <td>1.99</td>
+                <td>1.999</td>
+                <td>1.9999</td>
+            </tr>
+        </table>
+    </p>
+    <p>
+        \[{\lim_{x\to 1}} f(x) = \FormInput[2]{xx}\]
+    </p>
+</body>
+
+</html>
+<!-- <script src="/latex.js"></script> -->
+<script type="text/javascript" src="/MathJax/MathJax.js?config=TeX-AMS_HTML"></script>
+<script type="text/javascript">
+MathJax.Hub.Config({ 
+	jax: ["input/TeX","output/CommonHTML"],
+	TeX: { extensions: ["forminput.js"] } 
+});
+//  MathJax.Hub.Confige({
+//  	TeX: {
+//     extensions: ["/widgets/mathjax/forminput.js"]
+//   }
+// });
+//  MathJax.Hub.Register.StartupHook("End", function () {
+//   //绑定题目填空事件
+//   inputBindEvent();
+// });
+</script>
