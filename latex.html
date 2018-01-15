@@ -32,7 +32,13 @@ MathJax.Hub.Config({
             ["\\[", "\\]"]
         ],
         processEscapes: false
-    }
+    },
+    "HTML-CSS": {
+        availableFonts: ["STIX","TeX"],
+        showMathMenu: false
+    },
+    showProcessingMessages: false,
+    messageStyle: "none"
 });
 MathJax.Hub.Register.StartupHook("End", function() {
     //绑定题目填空事件

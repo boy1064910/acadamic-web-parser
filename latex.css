@@ -1,3 +1,7 @@
+.MathJax{outline:0;}
+.MathJax_Display{overflow-x:auto;overflow-y:hidden;}
+.MathJax span{font-size:16px;}
+
 input{
 	height: 0.8rem;
 }
