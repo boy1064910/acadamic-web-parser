@@ -9,7 +9,7 @@ function inputBindEvent() {
         if (Ding.isEmpty($(questionList[i]).parents('.knowledge_point_question')[0])) {
             $(questionList[i]).on("blur", checkPointAnswer);
         } else {
-            if(Ding.isEmpty($(questionList[i]).parent("annotation-xml")[0])){
+            if (Ding.isEmpty($(questionList[i]).parent("annotation-xml")[0])) {
                 console.log($(questionList[i]));
                 $(questionList[i]).on("blur", checkQuestionAnswer);
             }
@@ -43,50 +43,149 @@ function checkPointAnswer() {
 
 //练习题问题的答案校验
 function checkQuestionAnswer() {
-  console.log("sdsds");
     var questionDiv = $(this).parents('.knowledge_point_question');
-    console.log(questionDiv);
     var inputList = questionDiv.find('input[type="text"]');
-    console.log(inputList);
-    var result = true; //是否显示答题结果，true:显示，false:不显示
-    for (var i=0; i < inputList.length; i++) {
-        if (Ding.isEmpty($(inputList[i]).val())) {
-            result = false;
-            break;
-        }
-    }
 
-    console.log(result);
-    if (result) {
-        var nextQuestionResult = true;
-        //已全部填写完毕，开始校验答案
-        for (var i = 0; i < inputList.length; i++) {
-            var contentid = $(inputList[i]).attr("contentid");
-            var code = $(inputList[i]).attr("name");
+    var allAnswerRight = true;
+    var allFillAnswer = true;
+    var tipInputList = [];
+    for (var i = 0; i < inputList.length; i++) {
+        //不属于特殊编译产生的input
+        if (Ding.isEmpty($(inputList[i]).parent('annotation-xml')[0])) {
+            tipInputList.push($(inputList[i]));
+
             var val = $.trim($(inputList[i]).val());
-            var rightAnswer = contentAnswerMap[contentid + "-" + code];
-            console.log(rightAnswer + "--" + val);
-            if (rightAnswer == val) {
-                $(inputList[i]).addClass("right_answer");
-                $(inputList[i]).removeClass("wrong_answer");
-            } else {
-
-                $(inputList[i]).addClass("wrong_answer");
-                $(inputList[i]).removeClass("right_answer");
-                nextQuestionResult = false;
+            if(Ding.isEmpty(val)){
+                allFillAnswer = false;
             }
+            else{
+                var contentid = $(inputList[i]).attr("contentid");
+                var code = $(inputList[i]).attr("name ");
+                var rightAnswer = contentAnswerMap[contentid + "-" + code];
+
+                if (rightAnswer == val) {
+                    $(inputList[i]).addClass("right_answer");
+                    $(inputList[i]).removeClass("wrong_answer");
+                } else {
+                    $(inputList[i]).addClass("wrong_answer");
+                    $(inputList[i]).removeClass("right_answer");
+                    allAnswerRight = false;
+                }
+            }          
         }
-        console.log(nextQuestionResult);
-        // if (nextQuestionResult) {
-        //     questionDiv.hide();
-        //     questionDiv.next().show();
-        // } else {
-            
-        // }
-        questionDiv.append(nextQuestionDiv);
     }
-    
+
+    allFillAnswer ? (
+        //全部已填写
+        console.log("fill all"),
+        allAnswerRight ? (
+            //答案全部正确，显示下一题or继续
+            questionDiv.append(nextQuestionDiv)
+        ) :(
+            //答案有错，显示正确答案按钮
+            showRightAnswer(tipInputList)
+        )
+    ):(
+        //未全部填写，无操作
+        console.log("not all fill")
+    )
 }
+
+var rightAnswerTip = '<div class="right_answer_tip"></div>';
+//显示正确答案
+function showRightAnswer(inputList){
+    for(var i=0;i<inputList.length;i++){
+        
+        var answerTip = $("#answer-"+inputList[i].attr("name"));
+        console.log(answerTip);
+        if(answerTip){
+            console.log("sdsd");
+            answerTip = $(rightAnswerTip);
+            answerTip.attr("id","answer-"+inputList[i].attr("name"));
+            $(document.body).append(answerTip);
+        }
+        
+        var contentid = inputList[i].attr("contentid");
+        var code = inputList[i].attr("name");
+        var rightAnswer = contentAnswerMap[contentid + "-" + code];
+        
+        answerTip.html(rightAnswer);
+        answerTip.show();
+        // inputList[i].css({
+        //     'top':inputList[i].position().top,
+        //     'left':inputList[i].position().left
+        // });
+        // inputList[i].next(".right_answer_tip").offset({
+        //     'top':'100',
+        //     'left':'100'
+        // })
+        var height = inputList[i].outerHeight(true);
+        answerTip.offset({
+            'top':inputList[i].offset().top + height,
+            'left':inputList[i].offset().left
+        });
+        
+    }
+}
+
+// //检查答案是否全部正确
+// var allAnswerRight = true;
+// for (var i = 0; i < inputList.length; i++) {
+//     //不属于特殊编译产生的input
+//     if (Ding.isEmpty($(inputList[i]).parent('annotation-xml')[0]) {
+//             var contentid = $(inputList[i]).attr("contentid");
+//             // var contentid = $(inputList[i]).attr("contentid");
+//             // var code = $(inputList[i]).attr("name");
+//             // var val = $.trim($(inputList[i]).val());
+//             // var rightAnswer = contentAnswerMap[contentid + "-" + code];
+
+//         }
+
+//         var result = true; //是否已经全部填写答案
+//         var needCheckInputList = [];
+//         for (var i = 0; i < inputList.length; i++) {
+//             if (Ding.isEmpty($(inputList[i]).parent("annotation-xml")[0]) && Ding.isEmpty($(inputList[i]).val())) {
+//                 result = false;
+//                 break;
+//             }
+//         }
+
+//         if (result) { //已全部填写答案
+//             var nextQuestionResult = true;
+//             //已全部填写完毕，开始校验答案
+//             for (var i = 0; i < inputList.length; i++) {
+//                 var contentid = $(inputList[i]).attr("contentid");
+//                 var code = $(inputList[i]).attr("name");
+//                 var val = $.trim($(inputList[i]).val());
+//                 var rightAnswer = contentAnswerMap[contentid + "-" + code];
+//                 console.log(rightAnswer + "--" + val);
+//                 if (rightAnswer == val) {
+//                     $(inputList[i]).addClass("right_answer");
+//                     $(inputList[i]).removeClass("wrong_answer");
+//                 } else {
+
+//                     $(inputList[i]).addClass("wrong_answer");
+//                     $(inputList[i]).removeClass("right_answer");
+//                     nextQuestionResult = false;
+//                 }
+//             }
+//             console.log(nextQuestionResult);
+//             // if (nextQuestionResult) {
+//             //     questionDiv.hide();
+//             //     questionDiv.next().show();
+//             // } else {
+
+//             // }
+//             questionDiv.append(nextQuestionDiv);
+
+//             //检查答案是否全部正确
+//             var allAnswerRight = true;
+
+//         }
+
+//     }
+// }
+// }
 
 var nextContentDiv = '<div class="next_content" onclick="nextContent(this)">继续</div>';
 var nextQuestionDiv = '<div class="next_content" onclick="nextQuestion(this)">下一题</div>';
@@ -179,6 +278,7 @@ function nextContent(content) {
 
     if (currentContent.next().children(".knowledge_point_question").length != 0) {
         currentContent.next().children(".knowledge_point_question:first").show();
+        console.log(currentContent.next().children(".knowledge_point_question:first"));
     }
 }
 

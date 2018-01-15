@@ -104,3 +104,11 @@ table th {
     background-color: #09BB07;
     font-size: 0.875rem;
 }
+
+.right_answer_tip{
+    position: absolute;
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+}
