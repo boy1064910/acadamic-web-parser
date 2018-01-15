@@ -2,8 +2,40 @@
 .MathJax_Display{overflow:auto;}
 .MathJax span{font-size:16px;}
 
-input{
-	height: 0.8rem;
+html, body{
+    height: 100%;
+}
+body{
+    font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+}
+.item{
+    padding: 10px 0;
+}
+.item__title{
+    margin-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #999;
+    font-weight: normal;
+    font-size: 14px;
+}
+.item__ctn{
+    padding: 0 15px;
+}
+.page_feedback{
+    padding: 15px;
+    overflow: auto;
+    background-color: #FFFFFF;
+}
+
+/*fix fastclick很难点中的bug*/
+label > * { pointer-events: none; }
+
+/* weui需要fix的 */
+.weui-picker__item{
+    padding: 0;
+    height: 34px;
+    line-height: 34px;
 }
 /*input {
     padding: 6px 12px;
@@ -53,10 +85,6 @@ input::-webkit-input-placeholder {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(230, 67, 64, .6);
 }
 
-p {
-    margin: 0;
-}
-
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -77,19 +105,12 @@ table th {
     border-bottom: : 1px solid #000;
 }
 
-#knowledge-point-list {
-    font-size: 0.75rem;
-}
-
 .knowledge_point {
     display: none;
 }
 
 .knowledge_point_content {
     display: none;
-    bottom: 1.875rem;
-    position: relative;
-    line-height: 1.2rem;
 }
 
 .knowledge_point_question {

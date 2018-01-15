@@ -1,20 +1,21 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <!-- Latest compiled and minified CSS -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
     <link href="/latex.css" rel="stylesheet">
 </head>
 
 <body>
-    <div id="knowledge-point-list">
+    <div>
+        <article class="weui-article" id="knowledge-point-list">
+        </article>
     </div>
 </body>
 
 </html>
-<script src="/widgets/jquery/jquery-3.2.1.min.js"></script>
+
 <!-- Latest compiled and minified JavaScript -->
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
 <script type="text/javascript" src="/MathJax/MathJax.js?config=TeX-AMS_HTML&delayStartupUntil=configured"></script>
@@ -45,5 +46,7 @@ MathJax.Hub.Register.StartupHook("End", function() {
     inputBindEvent();
 });
 </script>
+<script src="/widgets/jquery/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/widgets/weui/weui.min.js"></script>
 <script src="/widgets/dingui/Ding.js"></script>
 <script src="/latex.js"></script>
