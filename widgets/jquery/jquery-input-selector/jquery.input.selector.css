@@ -1,0 +1,24 @@
+.ding-input-selector{
+	border:1px solid #ccc;
+	min-height: 120px;
+	max-height: 200px;
+	overflow-y: auto;
+	position: absolute;
+	z-index: 99;
+	background:#FFF;
+	padding: 6px 12px;
+	display: none;
+}
+
+.ding-input-selector-option{
+	height: 24px;
+	line-height: 24px;
+	cursor: pointer;
+	text-align: left;
+	padding: 0 0 0 3px;
+	overflow: hidden;
+}
+
+.ding-input-selector-option:hover{
+	background-color: #eee;
+}

@@ -1,0 +1,127 @@
+.ding-file-uploader-container{
+	float:none;
+	margin: 0;
+}
+.ding-file-uploader-info-container:after{
+	clear: both;
+	display: block;
+	content: ' ';
+}
+.ding-file-uploader img{
+	width: 200px;
+	height: 200px;
+	border: 1px solid #eee;
+	cursor: pointer;
+}
+.ding-file-uploader .selector_btn{
+	display: inline-block;
+    margin: 0 15px 0 0px;
+    padding: 0 25px;
+    border: 1px solid #E0E0E0;
+    color: #515151;
+    text-decoration: none;
+    cursor: pointer;
+    height: 28px;
+    line-height: 28px;
+}
+.ding-file-uploader-info{
+	float: left;
+	overflow: hidden;
+	margin-right: 5px;
+}
+.ding-file-uploader-info p:after{
+	display: block;
+	content: " ";
+	clear: both;
+}
+.ding-file-uploader-info b{
+	padding-right: 10px;
+	float: left;
+}
+.ding-file-uploader-info span{
+	
+	overflow: hidden;
+}
+.ding-file-uploader-info:after{
+	clear: both;
+	display: block;
+	content: ' ';
+}
+.ding-file-uploader-img-div{
+    position: relative;
+    float: left;
+}
+.ding-file-uploader-img-div .o-btn{
+	margin-right:8px;
+	float: left;
+}
+
+.ding-file-uploader-img-div .ding-file-uploader-btn-div{
+	position: absolute;
+	left: 0px;
+	bottom:0px;
+	width:100%;
+	padding: 2px;
+    background-color: #f5f5f5;
+    opacity: 0.7;
+}
+.progress{
+    width: 200px;
+    height: 14px;
+    margin: 5px 0;
+    overflow: hidden;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+}
+.progress-bar{ 
+	width: 0px;
+	background-color: rgb(92, 184, 92);
+	background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.14902) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.14902) 50%, rgba(255, 255, 255, 0.14902) 75%, transparent 75%, transparent);
+	background-size: 40px 40px;
+	box-shadow: rgba(0, 0, 0, 0.14902) 0px -1px 0px 0px inset;
+	box-sizing: border-box;
+	color: rgb(255, 255, 255);
+	font-size: 12px;
+	height: 20px;
+	line-height: 20px;
+	transition-delay: 0s;
+	transition-duration: 0.6s;
+	transition-property: width;
+	transition-timing-function: ease;
+}
+
+.ding-file-uploader-view{
+	position: fixed;
+	z-index: 9999;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	cursor: pointer;
+}
+
+.ding-file-uploader-view .curtain{
+	width: 60%;
+	height: 80%;
+	position: absolute;
+	z-index: 10001;
+	top: 10%;
+	left: 20%;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center center;
+	border:1px dashed #000;
+}
+
+.ding-file-uploader-view .masker{
+	position:absolute;
+	background:#eee;
+	top: 0;
+	left: 0;
+	z-index: 10000;
+	width: 100%;
+	height: 100%;
+	opacity: 0.9;
+}

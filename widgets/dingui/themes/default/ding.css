@@ -1,0 +1,409 @@
+/*头部错误提示*/
+.ding-validation-result{
+	background: #2E2E2E;
+	text-align: center;
+	color: #fff;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 999;
+}
+.ding-validation-result>div{
+	font-size: 1.4rem;
+	line-height: 2rem;
+	margin: 0.5rem 0.8rem;
+}
+.ding-disbale-btn{
+	background-color: #ccc;
+}
+/*后台table*/
+.Ding-Datagrid{
+	width: 100%;
+	margin: 0 auto;
+	border-collapse:collapse;
+	border-spacing:0;
+	border-radius: 5px;
+	border: 1px solid #E1E1E1;
+}
+.Ding-Datagrid tr{
+	border-bottom: 1px solid #E1E1E1;
+}
+.Ding-Datagrid th{
+	height: 38px;
+	text-align: center;
+	color: #000;
+	border-right: 1px solid #E1E1E1;
+	/*给td固定的宽*/
+	word-wrap:break-word;
+	word-break:break-all;
+	white-space: nowrap;
+}
+.Ding-Datagrid td{
+	height: 38px;
+	text-align: center;
+	color: #515151;
+	border-right: 1px solid #E1E1E1;
+	word-break:break-all;
+	/*给td固定的宽*/
+	/*word-wrap:break-word;
+	word-break:break-all;
+	white-space: nowrap;*/
+	padding:0 5px;
+}
+.Ding-Datagrid td:last-child{
+	border-right: none;
+}
+.Ding-Datagrid td a{
+	cursor: pointer;
+	text-decoration: none;
+	margin: 0 8px;
+}
+.Ding-Datagrid td input{
+	height: 30px;
+	padding-left: 10px;
+	color:#5EA6E0;
+	padding-right: 10px;
+	font-family: "微软雅黑";
+}
+.Ding-Datagrid th input[type="checkbox"],.Ding-Datagrid td input[type="checkbox"]{
+	width: 18px;
+	height: 18px;
+}
+.Ding-Datagrid .remove_btn a{
+	padding-left: 10px;
+	height: 38px;
+	width: 220px;
+	word-wrap:break-word;
+	word-break:break-all;
+	color:#5EA6E0;
+	cursor: pointer;
+	text-decoration: none;
+}
+.Ding-Datagrid tr td>.page_btn{
+	display: inline-block;
+	width: 28px;
+	height: 40px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	margin-right: 5px;
+	float: left;
+	line-height: 40px;
+}
+.Ding-Datagrid tr td>.disable_btn{
+	opacity: 0.4;
+	cursor: auto;
+}
+.Ding-Datagrid tr td>.first_btn{
+	background-image: url('first.gif');
+}
+.Ding-Datagrid tr td>.pre_btn{
+	background-image: url('prev.gif');
+}
+.Ding-Datagrid tr td>.next_btn{
+	background-image: url('next.gif');
+}
+.Ding-Datagrid tr td>.last_btn{
+	background-image: url('last.gif');
+}
+
+.Ding-Mask{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99;
+	background: #000;
+	display: none;
+	opacity: 0.8;
+}
+.ding-popup{
+	width: 300px;
+}
+.ding-popup-mask{
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+}
+.ding-popup .ding-popup-box{
+	border-radius: 5px;
+    z-index: 1000;
+    position: fixed;
+    background: #fff;
+    top:200px;
+    left: 100px;
+    width: 300px;
+}
+.ding-popup .ding-popup-box .ding-popup-box-content{
+	font-size: 16px;
+	text-align: center;
+	line-height: 28px;
+	padding: 10px 10px;
+}
+.ding-popup .ding-popup-box .ding-popup-box-confirm-btn{
+	border-top: 1px solid #C6C6C6;
+	cursor: pointer;
+}
+.ding-popup .ding-popup-box .ding-popup-box-confirm-btn>a{
+	height: 38px;
+	line-height: 38px;
+	display: inline-block;
+	float: left;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	width: 49.5%;
+}
+.ding-popup .ding-popup-box .ding-popup-box-confirm-btn>a:hover{
+	text-decoration: none;
+}
+.ding-popup .ding-popup-box .ding-popup-box-confirm-btn>a:first-child{
+	border-right: 1px solid #C6C6C6;
+}
+.ding-popup .ding-popup-box .ding-popup-box-confirm-btn:after{
+	clear: both;
+	content: " ";
+	display: block;
+}
+
+.Ding-InputSelector{
+	position: relative;
+	margin: 0;
+	width: 200px;
+	height: 34px;
+}
+
+.Ding-InputSelector input{
+	display: block;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    /*border: 1px solid #ccc;*/
+    border-radius: 4px;
+    box-shadow: none;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.Ding-InputSelector dt{
+	max-height: 200px;
+	overflow-y: auto;
+	position: absolute;
+	background:#FFF;
+	border:1px solid #000;
+	display: none;
+	position: absolute;
+	z-index: 10;
+}
+.Ding-InputSelector dt dd{
+	height: 24px;
+	line-height: 24px;
+	cursor: pointer;
+	text-align: left;
+	padding: 0 0 0 3px;
+	overflow: hidden;
+}
+.Ding-InputSelector dt dd:hover{
+	background-color: #eee;
+}
+
+.Ding-Selector{
+	width: 198px;
+    height: 32px;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    color: #515151;
+    font-family: "微软雅黑";
+}
+
+.Ding-SelectorInput{
+	position: relative;
+	height: 30px;
+	width: 300px;
+	margin: 0 auto;
+}
+
+.Ding-SelectorInput input[type="text"]{
+	background-image: url('xiala.png');
+	background-position: 98% center;
+	background-repeat: no-repeat;
+	/*cursor: pointer;*/
+	width: 300px;
+	height: 30px;
+	cursor: text;
+	margin: 0;
+	padding: 0;
+	padding-left: 8px;
+	border: 1px solid #E0E0E0;
+}
+.Ding-SelectorInput>div{
+	position: absolute;
+	/*display: none;*/
+	z-index: 990;
+	border: 1px solid #E0E0E0;
+	top: 30px;
+}
+.Ding-SelectorInput>div>div{
+	text-align: left;
+	width: 100%;
+	height: 30px;
+	line-height: 30px;
+	cursor: pointer;
+	margin: 0 auto;
+	border-bottom: 1px solid #E0E0E0;
+	background-color: #fff;
+}
+.Ding-SelectorInput>div>div:last-child{
+	border-bottom: 1px solid #E0E0E0;
+}
+.Ding-SelectorInput>div>div:hover{
+	background-color: #E0E0E0;
+}
+
+.Ding-SlideBox{
+  
+}
+.Ding-SlideBox div{
+  float: left;
+}
+.Ding-SlideBox:after{
+	clear: both;
+	display: block;
+	content: " ";
+}
+
+.Ding-Uploader{
+	float: left;
+}
+.Ding-Uploader:after{
+	display: block;
+	clear: both;
+	content: " ";
+}
+.Ding-Uploader>div{
+	float: left;
+	min-width: 200px;
+	height: 38px;
+	border: 1px solid #E0E0E0;
+	line-height: 38px;
+	padding-left: 10px;
+	border-right: none;
+	border-radius: 5px 0 0 5px;
+	overflow: hidden;
+}
+.Ding-Uploader>div>a{
+	display: inline-block;
+	height: 38px;
+	width: 38px;
+	float: right;
+	background: url(xxx.jpg) no-repeat center center;
+	border: none;
+	cursor: pointer;
+}
+.Ding-Uploader>a{
+	display: block;
+	float: left;
+	height: 38px;
+	line-height: 38px;
+	border: 1px solid #E0E0E0;
+	text-align: center;
+	color: #212121;
+	border-radius: 0 5px 5px 0;
+	cursor: pointer;
+	padding: 0 15px;
+}
+
+.Ding-ImgUploader{
+	border: 1px solid #000;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	background-size: contain;
+}
+.Ding-ImgUploader>img{
+	width: 200px;
+}
+
+
+
+
+.ding-btn{
+	display: inline-block;
+    padding:0 5px;
+    border: 1px solid #E0E0E0;
+    color: #515151;
+    text-decoration: none;
+    cursor: pointer;
+    height: 30px;
+    line-height: 30px;
+}
+.ding-btn:hover{
+	background-color: #e5e5e5;
+	color: #515151;
+	text-decoration: none;
+	border: 1px solid #ccc;
+}
+.ding-ico{
+	padding: 0 5px 0 23px;
+	background-position: 5px center;
+	background-repeat: no-repeat;
+}
+.ding-ico-add{
+	background-image: url('../icons/add.gif');
+}
+.ding-ico-cancel{
+	background-image: url('../icons/cancel.gif');
+}
+.ding-ico-save{
+	background-image: url('../icons/save.gif');
+}
+.ding-ico-remove{
+	background-image: url('../icons/remove.gif');
+}
+.ding-ico-undo{
+	background-image: url('../icons/undo.gif');
+}
+.ding-ico-reload{
+	background-image: url('../icons/reload.png');
+}
+.ding-ico-search{
+	background-image: url('../icons/search.gif');
+}
+.ding-ico-addnew{
+	background-image: url('../icons/addnew.gif');
+}
+.ding-ico-download{
+	background-image: url('../icons/download.gif');	
+}
+.ding-ico-upload{
+	background-image: url('../icons/upload.gif');	
+}
+select{
+	min-width: 50px;
+	height: 30px;
+	line-height: 30px;
+	border: 1px solid #E0E0E0;
+	border-radius: 2px;
+}
+textarea{
+	color: #000;
+    border: 1px solid #E0E0E0;
+    border-radius: 2px;
+    padding-left:2px;
+}
+.form_tips{
+	border:1px solid red;
+}

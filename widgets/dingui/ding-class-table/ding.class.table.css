@@ -1,0 +1,124 @@
+.ding-class-table-header:after,
+.ding-class-table-second-header:after,
+.ding-class-table-body:after,
+.ding-class-table-body-r-line:after{
+	display: block;
+	content: " ";
+	clear: both;
+}
+.ding-class-table-header{
+	height: 38px;
+    background-color: #65CEA7;
+    text-align: center;
+    -ms-user-select:none;
+	-moz-user-select:none;
+	-webkit-user-select:none;
+}
+
+.ding-class-table-header>span{
+	line-height: 38px;
+	vertical-align: middle;
+	height: 38px;
+	color: #fff;
+	font-size: 16px;
+	margin: 5px;
+	margin: 0 12px;
+	display: inline-block;
+	cursor: pointer;
+	-ms-user-select:none;
+	-moz-user-select:none;
+	-webkit-user-select:none;
+}
+.ding-class-table-header>span:nth-child(1),
+.ding-class-table-header>span:nth-child(3){
+	width: 80px;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.ding-class-table-second-header{
+	border-bottom: 1px solid #ccc;	
+}
+
+.ding-class-table-second-header-l{
+	float: left;
+	width: 150px;
+	border-left : 1px solid #ccc;
+	border-right : 1px solid #ccc;
+	height: 45px;
+	padding: 0 5px;
+}
+.ding-class-table-second-header-r{
+	float: left;
+}
+.ding-class-table-second-header-r>div{
+	float: left;
+	text-align: center;
+	border-right: 1px solid #ccc;
+}
+.ding-class-table-second-header-title-date{
+	line-height: 25px;
+	height: 25px;
+	font-weight: bold;
+}
+.ding-class-table-second-header-title-day{
+	line-height: 20px;
+	height: 20px;	
+}
+
+.ding-class-table-body-l{
+	float: left;
+	border-left : 1px solid #ccc;
+	border-right : 1px solid #ccc;
+	width: 150px;
+}
+.ding-class-table-body-l>div{
+	text-align: center;
+	border-bottom: 1px solid #ccc;	
+	height: 35px;
+	line-height: 35px;
+	word-break:keep-all;           /* 不换行 */
+	white-space:nowrap;          /* 不换行 */
+	overflow:hidden;               /* 内容超出宽度时隐藏超出部分的内容 */
+	text-overflow:ellipsis;         /* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+	padding: 0 5px;
+}
+.ding-class-table-body-r{
+	float: left;
+}
+.ding-class-table-body-r-line{
+
+}
+.ding-class-table-body-r-date{
+	float: left;
+	height: 35px;
+	line-height: 35px;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	cursor: pointer;
+	position: relative;
+}
+.ding-class-table-body-r-time-lump{
+	position: absolute;
+	height: 34px;
+	top:0px;
+	text-align: center;
+	overflow: hidden;
+}
+.ding-class-table-body-r-time-lump:hover,
+.ding-class-table-body-r-time-lump-hover{
+	border-left: 2px solid #ccc;
+	border-right: 2px solid #ccc;
+}
+.ding-class-table-body-r-time-lump-success{
+	color: #fff;
+	background-color: #5CB85C;
+}
+.ding-class-table-body-r-time-lump-danger{
+	color: #fff;
+	background-color: #d9534f;
+}
+.ding-class-table-body-r-time-lump-info{
+	color: #fff;
+	background-color: #31b0d5;
+}

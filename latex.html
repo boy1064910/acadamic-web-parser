@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="/latex.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="knowledge-point-list">
+    </div>
+</body>
+
+</html>
+
+<script src="/widgets/jquery/jquery-3.2.1.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="/widgets/dingui/Ding.js"></script>
+<script src="/latex.js"></script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-AMS-MML_SVG&delayStartupUntil=configured'></script>
+<!-- <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.jsTeX-AMS_HTML?config=TeX-AMS_CHTML"></script> -->
+
+
+<script type="text/javascript">
+ //  MathJax.Hub.Configured({
+ //  	TeX: {
+	//     extensions: ["/widgets/mathjax/forminput.js"]
+	//   }
+	// });
+  MathJax.Hub.Register.StartupHook("End", function () {
+	  //绑定题目填空事件
+	  inputBindEvent();
+	});
+</script>

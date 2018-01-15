@@ -1,0 +1,89 @@
+.ding-calendar{
+	
+}
+
+.ding-calendar-header{
+	height: 38px;
+	background-color: #65CEA7;
+	text-align: center;
+}
+
+
+.ding-calendar-header:after{
+	display: block;
+	content: " ";
+	clear: both;
+}
+
+.ding-calendar-header-lump{
+	width: 33%;
+	text-align: center;
+	float: left;
+	height: 38px;
+	line-height: 38px;
+	vertical-align: middle;
+}
+
+.ding-calendar-header>span{
+	line-height: 38px;
+	vertical-align: middle;
+	height: 38px;
+	color: #fff;
+	font-size: 16px;
+	margin: 5px;
+	margin: 0 12px;
+	display: inline-block;
+	float: left;
+}
+.ding-calendar-header>span:nth-child(1),
+.ding-calendar-header>span:nth-child(3){
+	width: 80px;
+	cursor: pointer;
+}
+.ding-calendar-header .today-btn{
+	font-size: 14px;
+	background-color: #fff;
+	font-weight: normal; 
+	height: 28px;
+	line-height: 28px;
+	color: #000;
+	width: 100px;
+    display: inline-block;
+    float: right;
+    margin-top: 5px;
+    cursor: pointer;
+}
+.ding-calendar-table tr:nth-child(2) th{
+	font-weight: normal;
+	font-size: 16px;
+}
+.ding-calendar-table th:nth-child(7),
+.ding-calendar-table th:nth-child(8),
+.ding-calendar-table th:nth-last-of-type(1),
+.ding-calendar-table th:nth-last-of-type(2){
+	color: red;
+}
+.ding-calendar-table th,.ding-calendar-table td{
+	text-align: center;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	height: 30px;
+	cursor: pointer;
+}
+.ding-calendar-table th:first-child,
+.ding-calendar-table td:first-child{
+	width:50px;
+	border-left: 1px solid #ccc;
+	cursor: pointer;
+}
+.course-div{
+	position: absolute;
+	z-index: 1;
+	background-color: #aaa;
+	border-right: 1px solid #fff;
+	font-size: 12px;
+	overflow: hidden;
+	cursor: help;
+	color: #fff;
+	border-radius: 5px
+}

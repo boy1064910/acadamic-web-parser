@@ -1,0 +1,48 @@
+ul,ol,li,dl{list-style-type:none;margin:0;padding:0;}
+em,i,dfn,cite,strong,small{font-style:normal;} 
+img{border:0;}
+fieldset,button,input,select,option{vertical-align:middle;font:12px/18px "宋体",arial,sans-serif;}
+table{border-collapse:collapse;border-spacing:0}
+textarea{resize:none}
+
+/* color */
+a:link,a:visited{color:#575757;text-decoration:none;}
+a:hover{color:#ef4165;text-decoration:none;}
+a:active{color:#1d7400;}
+/* clearfix */
+.clearfix:after{ visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0;}
+*html .clearfix{ zoom:1;}
+
+.preview{width:257px;}
+/* smallImg */
+.smallImg{position:relative; height:52px; margin-top:1px; background-color:#F1F0F0; width:257px; overflow:hidden;float:left;
+	-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;
+}
+.scrollbutton{width:14px; height:50px; overflow:hidden; position:relative; float:left; cursor:pointer; }
+.scrollbutton.smallImgUp , .scrollbutton.smallImgUp.disabled{background:url(images/d_08.png) no-repeat;}
+.scrollbutton.smallImgDown , .scrollbutton.smallImgDown.disabled{background:url(images/d_09.png) no-repeat; margin-left:243px; margin-top:-50px;}
+#imageMenu ul:before{display: block;content: " ";clear:both;}
+#imageMenu {height:50px; width:229px; overflow:hidden; margin-left:0; float:left;}
+#imageMenu li {height:50px; width:55px; overflow:hidden; float:left; text-align:center;}
+#imageMenu li img{width:50px; height:50px;cursor:pointer;}
+#imageMenu li#onlickImg img, #imageMenu li:hover img{ width:44px; height:44px; border:3px solid #959595;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;}
+/* bigImg */
+.bigImg{position:relative; width:257px; height:257px; overflow:hidden;text-align: center;cursor: pointer;}
+.bigImg #midimg{width:257px; height:257px;border:1px dashed;}
+.bigImg #winSelector{width:150px; height:150px;}
+#winSelector{position:absolute; cursor:crosshair; filter:alpha(opacity=15); -moz-opacity:0.15; opacity:0.15; background-color:#000; border:1px solid #fff;}
+/* bigView */
+#bigView{position:absolute;border: 1px solid #959595; overflow: hidden; z-index:999;}
+#bigView img{position:absolute;}
+
+.choose_pic_tips{
+    position: absolute;
+    z-index:9;
+    width:100px;
+    height:20px;
+    line-height: 20px;
+    text-align: center;
+    top:120px;
+    left:100px;
+    cursor: pointer;
+}
