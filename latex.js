@@ -1,10 +1,16 @@
 //content答案map
 var contentAnswerMap = {};
 
+var nextContentDiv = '<div class="bottom_btn next_content" onclick="nextContent(this)">继续</div>';
+var nextQuestionDiv = '<div class="bottom_btn next_content" onclick="nextQuestion(this)">下一题</div>';
+var rightAnswerBtn = '<div class="bottom_btn right_answer_btn" onclick="showRightAnswer(this)">显示答案</div>';
+
+//正确答案html
+var rightAnswerTip = '<div class="right_answer_tip"></div>';
+
 //初始化绑定问题文本框答题事件
 function inputBindEvent() {
     var questionList = $("#knowledge-point-list").find('input[type="text"]');
-    console.log(questionList);
     for (var i = 0; i < questionList.length; i++) {
         if (Ding.isEmpty($(questionList[i]).parents('.knowledge_point_question')[0])) {
             $(questionList[i]).on("blur", checkPointAnswer);
@@ -48,12 +54,9 @@ function checkQuestionAnswer() {
 
     var allAnswerRight = true;
     var allFillAnswer = true;
-    var tipInputList = [];
     for (var i = 0; i < inputList.length; i++) {
         //不属于特殊编译产生的input
         if (Ding.isEmpty($(inputList[i]).parent('annotation-xml')[0])) {
-            tipInputList.push($(inputList[i]));
-
             var val = $.trim($(inputList[i]).val());
             if(Ding.isEmpty(val)){
                 allFillAnswer = false;
@@ -83,7 +86,8 @@ function checkQuestionAnswer() {
             questionDiv.append(nextQuestionDiv)
         ) :(
             //答案有错，显示正确答案按钮
-            showRightAnswer(tipInputList)
+            // showRightAnswer(tipInputList)
+            showRightAnswerBtn(questionDiv)
         )
     ):(
         //未全部填写，无操作
@@ -91,41 +95,44 @@ function checkQuestionAnswer() {
     )
 }
 
-var rightAnswerTip = '<div class="right_answer_tip"></div>';
+function showRightAnswerBtn(div){
+    div.append(rightAnswerBtn);
+}
+
 //显示正确答案
-function showRightAnswer(inputList){
+function showRightAnswer(btn){
+    var parentDiv = $(btn).parents('.knowledge_point_question');
+    var inputList = parentDiv.find('input[type="text"]');
     for(var i=0;i<inputList.length;i++){
-        
-        var answerTip = $("#answer-"+inputList[i].attr("name"));
-        console.log(answerTip);
+        if ($(inputList[i]).parent('annotation-xml')[0]) {
+            continue;
+        }
+        var answerTip = $("#answer-"+$(inputList[i]).attr("name"));
         if(answerTip){
-            console.log("sdsd");
             answerTip = $(rightAnswerTip);
-            answerTip.attr("id","answer-"+inputList[i].attr("name"));
+            answerTip.attr("id","answer-"+$(inputList[i]).attr("name"));
             $(document.body).append(answerTip);
         }
         
-        var contentid = inputList[i].attr("contentid");
-        var code = inputList[i].attr("name");
+        var contentid = $(inputList[i]).attr("contentid");
+        var code = $(inputList[i]).attr("name");
         var rightAnswer = contentAnswerMap[contentid + "-" + code];
         
         answerTip.html(rightAnswer);
         answerTip.show();
-        // inputList[i].css({
-        //     'top':inputList[i].position().top,
-        //     'left':inputList[i].position().left
-        // });
-        // inputList[i].next(".right_answer_tip").offset({
-        //     'top':'100',
-        //     'left':'100'
-        // })
-        var height = inputList[i].outerHeight(true);
+        var height = $(inputList[i]).outerHeight(true);
         answerTip.offset({
-            'top':inputList[i].offset().top + height,
-            'left':inputList[i].offset().left
+            'top':$(inputList[i]).offset().top + height,
+            'left':$(inputList[i]).offset().left
         });
-        
     }
+
+    //移除显示正确答案按钮
+    $(btn).remove();
+    //移除所有正确答案
+    $(".right_answer_tip").remove();
+    //判断是否存在下一题
+    parentDiv.append(nextQuestionDiv);
 }
 
 // //检查答案是否全部正确
@@ -187,8 +194,7 @@ function showRightAnswer(inputList){
 // }
 // }
 
-var nextContentDiv = '<div class="next_content" onclick="nextContent(this)">继续</div>';
-var nextQuestionDiv = '<div class="next_content" onclick="nextQuestion(this)">下一题</div>';
+
 
 
 Ding.ready(function() {

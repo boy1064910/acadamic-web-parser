@@ -92,18 +92,7 @@ table th {
     display: none;
 }
 
-.next_content {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    height: 1.875rem;
-    line-height: 1.875rem;
-    width: 100%;
-    color: #fff;
-    text-align: center;
-    background-color: #09BB07;
-    font-size: 0.875rem;
-}
+
 
 .right_answer_tip{
     position: absolute;
@@ -111,4 +100,25 @@ table th {
     width: 20px;
     height: 20px;
     border: 1px solid #000;
+}
+
+.bottom_btn{
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 1.875rem;
+    line-height: 1.875rem;
+    width: 100%;
+    color: #fff;
+    font-size: 0.875rem;
+}
+
+/*错误答案显示按钮*/
+.right_answer_btn{
+    background-color: #e64340;
+}
+/*继续按钮*/
+.next_content {
+    background-color: #09BB07;
 }
