@@ -9,7 +9,10 @@ function inputBindEvent() {
         if (Ding.isEmpty($(questionList[i]).parents('.knowledge_point_question')[0])) {
             $(questionList[i]).on("blur", checkPointAnswer);
         } else {
-            $(questionList[i]).on("blur", checkQuestionAnswer);
+            if(Ding.isEmpty($(questionList[i]).parent("annotation-xml")[0])){
+                console.log($(questionList[i]));
+                $(questionList[i]).on("blur", checkQuestionAnswer);
+            }
         }
     }
 }
@@ -53,6 +56,7 @@ function checkQuestionAnswer() {
         }
     }
 
+    console.log(result);
     if (result) {
         var nextQuestionResult = true;
         //已全部填写完毕，开始校验答案
@@ -79,8 +83,9 @@ function checkQuestionAnswer() {
         // } else {
             
         // }
+        questionDiv.append(nextQuestionDiv);
     }
-    questionDiv.append(nextQuestionDiv);
+    
 }
 
 var nextContentDiv = '<div class="next_content" onclick="nextContent(this)">继续</div>';
