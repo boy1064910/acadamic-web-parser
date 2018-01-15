@@ -1,3 +1,5 @@
+$('body').on('touchmove', function (event) {event.preventDefault();});
+
 //content答案map
 var contentAnswerMap = {};
 
