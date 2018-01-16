@@ -1,7 +1,8 @@
 //content答案map
-var nextContentDiv = '<div class="bottom_btn next_content" onclick="nextContent(this)">继续</div>';
-var nextQuestionDiv = '<div class="bottom_btn next_content" onclick="nextQuestion(this)">下一题</div>';
-var rightAnswerBtn = '<div class="bottom_btn right_answer_btn" onclick="showRightAnswer(this)">显示答案</div>';
+var nextContentDiv = '<a href="javascript:;" class="weui-btn weui-btn_primary bottom_btn" onclick="nextContent(this)">继续</a>';
+var nextQuestionDiv = '<a href="javascript:;" class="weui-btn weui-btn_primary bottom_btn" onclick="nextQuestion(this)">下一题</a>';
+// var rightAnswerBtn = '<div class="bottom_btn right_answer_btn" onclick="showRightAnswer(this)">显示答案</div>';
+var rightAnswerBtn = '<a href="javascript:;" class="weui-btn weui-btn_warn bottom_btn" onclick="showRightAnswer(this)">显示答案</a>';
 
 //正确答案html
 var rightAnswerTip = '<div class="tooltip fade bottom in"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>';
@@ -10,7 +11,6 @@ var rightAnswerTip = '<div class="tooltip fade bottom in"><div class="tooltip-ar
 function inputBindEvent() {
     var questionList = $("#knowledge-point-list").find('input[type="text"],[type="number"]');
     for (var i = 0; i < questionList.length; i++) {
-        console.log(questionList[i]);
         if ($(questionList[i]).parent("annotation-xml")[0]) {
             continue;
         }
