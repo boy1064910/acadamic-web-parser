@@ -12,29 +12,16 @@ MathJax.Callback.Queue(
         
 
         TEX.Parse.Augment({
-
             //
-            //  Implements \href{url}{math}
-            //
-            HREF_attribute: function(name) {
-              console.log("name");
-                var url = this.GetArgument(name),
-                    arg = this.GetArgumentMML(name);
-                this.Push(arg.With({ href: url }));
-            },
-            //
-            //  Implements \FormInput[knowledgePointContentId]{code}
+            //  Implements \FormInput{code}
             //  Implements \FormInput[size][class]{name}
             //
             FormInput: function(name) {
-                var contentid = this.GetBrackets(name),
-                    name = this.GetArgument(name);
-                var input = HTML.Element("input", { type: "text", name: name });
-                input.setAttribute("size", "2");
-                input.setAttribute("contentid", contentid);
-                // input.setAttribute("xmlns","http://www.w3.org/1999/xhtml");
+                // var contentid = this.GetBrackets(name);
+                var code = this.GetArgument(name);
+                var input = HTML.Element("input", { type: "text",className:"weui-input"});
+                input.setAttribute("code", code);
                 var mml = MML["annotation-xml"](MML.xml(input)).With({ encoding: "application/xhtml+xml", isToken: true });
-                console.log(this);
                 this.Push(MML.semantics(mml));
 
             }
