@@ -109,48 +109,44 @@ function showRightAnswer(btn){
 
 Ding.ready(function() {
     var sessionId = Ding.getQueryParameterByName("sessionId");
-    var knowledgeId = Ding.getQueryParameterByName("knowledgeId");
+    var knowledgePointId = Ding.getQueryParameterByName("knowledgePointId");
     $.ajax({
         'url': '/acadamic-web-api/course/chapter/knowledge/info.shtml',
         'headers': {
             'xfsw-session': sessionId
         },
         'data': {
-            'knowledgeId': knowledgeId
+            'knowledgePointId': knowledgePointId
         },
         'success': function(res) {
-            var data = res.data;
-            var knowledgePointList = data.knowledgePointList;
+            var knowledgePoint = res.data;
+            
+            var contentList = knowledgePoint.contentList;
+            // if (Ding.isEmpty(contentList)) {
+            //     continue;
+            // }
 
-            for (var i = 0; i < knowledgePointList.length; i++) {
-                var contentList = knowledgePointList[i].contentList;
-                if (Ding.isEmpty(contentList)) {
-                    continue;
-                }
+            var pointDiv = $('<section></section>');
+            $("#knowledge-point-list").append(pointDiv);
 
-                var pointDiv = $('<section></section>');
-                $("#knowledge-point-list").append(pointDiv);
+            for (var j = 0; j < contentList.length; j++) {
+                var contentDiv = $('<div class="knowledge_point_content"></div>');
+                pointDiv.append(contentDiv);
 
-                for (var j = 0; j < contentList.length; j++) {
-                    var contentDiv = $('<div class="knowledge_point_content"></div>');
-                    pointDiv.append(contentDiv);
+                var content = contentList[j];
+                var questionList = contentList[j].questionList;
+                for (var k = 0; k < questionList.length; k++) {
+                    var questionDiv = $('<div class="knowledge_point_question"></div>');
+                    contentDiv.append(questionDiv);
 
-                    var content = contentList[j];
-                    var questionList = contentList[j].questionList;
-                    for (var k = 0; k < questionList.length; k++) {
-                        var questionDiv = $('<div class="knowledge_point_question"></div>');
-                        contentDiv.append(questionDiv);
-
-                        questionDiv.append(questionList[k].content);
-                        //整理答案进入答案集合
-                        if (!Ding.isEmpty(questionList[k].answerList)) {
-                            for (var m = 0; m < questionList[k].answerList.length; m++) {
-                                var answer = questionList[k].answerList[m];
-                                questionDiv.find('input[code="'+answer.code+'"]').attr("answer",answer.rightAnswer);
-                            }
+                    questionDiv.append(questionList[k].content);
+                    //整理答案进入答案集合
+                    if (!Ding.isEmpty(questionList[k].answerList)) {
+                        for (var m = 0; m < questionList[k].answerList.length; m++) {
+                            var answer = questionList[k].answerList[m];
+                            questionDiv.find('input[code="'+answer.code+'"]').attr("answer",answer.rightAnswer);
                         }
                     }
-                    
                 }
                 
             }
