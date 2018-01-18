@@ -1,6 +1,7 @@
 //content答案map
 var nextContentDiv = '<a href="javascript:;" class="weui-btn weui-btn_primary bottom_btn" onclick="nextContent(this)">继续</a>';
 var nextQuestionDiv = '<a href="javascript:;" class="weui-btn weui-btn_primary bottom_btn" onclick="nextQuestion(this)">下一题</a>';
+var gameOverBtn = '<a href="javascript:;" class="weui-btn weui-btn_primary bottom_btn" onclick="gameOver(this)">答题结束</a>';
 // var rightAnswerBtn = '<div class="bottom_btn right_answer_btn" onclick="showRightAnswer(this)">显示答案</div>';
 var rightAnswerBtn = '<a href="javascript:;" class="weui-btn weui-btn_warn bottom_btn" onclick="showRightAnswer(this)">显示答案</a>';
 
@@ -100,7 +101,12 @@ function showRightAnswer(btn){
         parentDiv.append(nextQuestionDiv);
     }
     else{
-        parentDiv.append(nextContentDiv);
+        if(parentDiv.parents('.knowledge_point_content').next('.knowledge_point_content')[0]){
+            parentDiv.append(nextContentDiv);
+        }
+        else{
+            parentDiv.append(gameOverBtn);
+        }
     }
 }
 
@@ -187,4 +193,8 @@ function nextQuestion(question) {
     currentQuestion.hide();
     //显示下个问题区域
     currentQuestion.next().show();  
+}
+
+function gameOver(btn){
+    wx.miniProgram.navigateBack();
 }

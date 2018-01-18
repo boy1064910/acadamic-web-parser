@@ -1,5 +1,5 @@
 .MathJax{outline:0;}
-.MathJax_Display{overflow:auto;}
+/*.MathJax_Display{overflow:auto;}*/
 .MathJax span{font-size:18px;}
 
 html, body{
@@ -78,6 +78,10 @@ input:-ms-input-placeholder {
 input::-webkit-input-placeholder {
     color: #999;
 }
+
+.knowledge_point_content p img{
+    width: 100%;
+}
 /*input {
     padding: 6px 12px;
     color: #555;
@@ -91,6 +95,7 @@ input::-webkit-input-placeholder {
     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
+
 
 
 
